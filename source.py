@@ -12,7 +12,7 @@ import numpy as np
 
 
 
-im=cv2.imread('goku.jpg')               #reads inn bgr format     
+im=cv2.imread('goku.jpg')               #reads inn bgr format   make sure to put the image in same directory as source code.  
 im=cv2.cvtColor(im,cv2.COLOR_BGR2RGB)   #coverts bgr to rgb
 original_shape=im.shape
 print(im.shape)
