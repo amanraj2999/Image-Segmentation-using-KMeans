@@ -17,7 +17,7 @@ import numpy as np
 im=cv2.imread('goku.jpg')               #reads inn bgr format     
 im=cv2.cvtColor(im,cv2.COLOR_BGR2RGB)   #coverts bgr to rgb
 original_shape=im.shape
-print(im.shape)
+# print(im.shape)
 
 
 # In[3]:
@@ -27,15 +27,15 @@ plt.imshow(im)                             #shows as RGBB Format
 plt.show()
 
 
-# In[14]:
+# In[4]:
 
 
 # Flatten each channel of the image
 all_pixels=im.reshape((-1,3))
-print(all_pixels.shape)
+# print(all_pixels.shape)
 
 
-# In[17]:
+# In[5]:
 
 
 from sklearn.cluster import KMeans
@@ -44,17 +44,17 @@ km=KMeans(n_clusters=dominant_colors)
 km.fit(all_pixels)
 
 
-# In[18]:
+# In[6]:
 
 
 centers = km.cluster_centers_
 centers = np.array(centers, dtype = 'uint8')
-print(centers)
+# print(centers)
 
 
 # ### Plot what all colors are these
 
-# In[21]:
+# In[7]:
 
 
 i=1
@@ -78,26 +78,26 @@ plt.show()
 
 # ### Segmenting our original image
 
-# In[32]:
+# In[8]:
 
 
 new_img=np.zeros((1385*1628,3),dtype='uint8')
-print(new_img.shape)
+# print(new_img.shape)
 
 
-# In[33]:
+# In[9]:
 
 
 colors
 
 
-# In[34]:
+# In[10]:
 
 
 km.labels_
 
 
-# In[35]:
+# In[11]:
 
 
 for ix in range(new_img.shape[0]):
@@ -106,4 +106,3 @@ for ix in range(new_img.shape[0]):
 new_img= new_img.reshape((original_shape))
 plt.imshow(new_img)
 plt.show()
-
